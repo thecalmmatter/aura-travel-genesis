@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Compass, Calendar, Briefcase, FileText, Airplane, Chat } from 'lucide-react';
+import { Compass, Calendar, Briefcase, FileText, Plane, MessageCircle } from 'lucide-react';
 
 const features = [
   {
@@ -33,14 +33,14 @@ const features = [
     gradient: 'from-cyan-400 to-green-500'
   },
   {
-    icon: Airplane,
+    icon: Plane,
     emoji: '✈️',
     title: 'In-Trip Agent',
     description: 'Real-time assistance and recommendations throughout your journey',
     gradient: 'from-green-400 to-yellow-500'
   },
   {
-    icon: Chat,
+    icon: MessageCircle,
     emoji: '📝',
     title: 'Post-Trip Agent',
     description: 'Feedback & learning to make every future trip even more amazing',
@@ -66,7 +66,7 @@ const FeaturesSection = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 12
       }

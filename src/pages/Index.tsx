@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Airplane, Briefcase, Calendar, Chat, Compass, FileText, Rocket } from 'lucide-react';
+import { Plane, Briefcase, Calendar, MessageCircle, Compass, FileText, Rocket } from 'lucide-react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ChatInterface from '../components/ChatInterface';

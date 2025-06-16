@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, Compass, Calendar, Airplane } from 'lucide-react';
+import { Rocket, Compass, Calendar, Plane } from 'lucide-react';
 
 const steps = [
   {
@@ -23,7 +23,7 @@ const steps = [
     step: '03'
   },
   {
-    icon: Airplane,
+    icon: Plane,
     title: 'Travel & Enjoy',
     description: 'Experience seamless travel with 24/7 AI support throughout your journey',
     step: '04'

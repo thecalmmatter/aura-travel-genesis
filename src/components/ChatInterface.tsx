@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Chat } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -71,7 +71,7 @@ const ChatInterface = () => {
               transition={{ repeat: Infinity, duration: 2 }}
               className="w-10 h-10 bg-gradient-to-r from-pink-400 to-blue-400 rounded-full flex items-center justify-center"
             >
-              <Chat className="w-5 h-5 text-white" />
+              <MessageCircle className="w-5 h-5 text-white" />
             </motion.div>
             <div>
               <h3 className="font-semibold text-white">AI Travel Concierge</h3>
