@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Airplane, Briefcase, Calendar, Chat, Compass, FileText, Rocket } from 'lucide-react';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import ChatInterface from '../components/ChatInterface';
+import FeaturesSection from '../components/FeaturesSection';
+import HowItWorksSection from '../components/HowItWorksSection';
+import Footer from '../components/Footer';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const Index = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white overflow-x-hidden">
+      <AnimatedBackground />
+      <motion.div style={{ opacity }} className="relative z-10">
+        <Header />
+        <HeroSection />
+        <FeaturesSection />
+        <HowItWorksSection />
+        <Footer />
+      </motion.div>
     </div>
   );
 };
