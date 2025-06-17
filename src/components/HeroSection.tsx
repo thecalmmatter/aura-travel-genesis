@@ -48,11 +48,11 @@ const HeroSection = () => {
             className="text-5xl md:text-7xl font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-              Your AI Travel
+              Vistaro Your Private
             </span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-green-400 to-pink-400 bg-clip-text text-transparent">
-              Concierge
+              Travel Concierge
             </span>
           </motion.h1>
 
