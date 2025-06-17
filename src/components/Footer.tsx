@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, MessageCircle, FileText, Calendar } from 'lucide-react';
@@ -39,7 +38,7 @@ const Footer = () => {
                 <Compass className="w-6 h-6 text-white" />
               </motion.div>
               <span className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">
-                TravelAI
+                Vistaro
               </span>
             </div>
             <p className="text-white/70 leading-relaxed mb-6 max-w-md">
@@ -119,7 +118,7 @@ const Footer = () => {
           className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-white/50 text-sm mb-4 md:mb-0">
-            © 2024 TravelAI. All rights reserved. Powered by artificial intelligence.
+            © 2024 Vistaro. All rights reserved. Powered by artificial intelligence.
           </p>
           <div className="flex space-x-6 text-sm">
             <motion.a
