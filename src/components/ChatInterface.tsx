@@ -74,7 +74,7 @@ const ChatInterface = () => {
               <MessageCircle className="w-5 h-5 text-white" />
             </motion.div>
             <div>
-              <h3 className="font-semibold text-white">AI Travel Concierge</h3>
+              <h3 className="font-semibold text-white">Vistaro</h3>
               <div className="flex items-center space-x-1">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-sm text-white/70">Online</span>
