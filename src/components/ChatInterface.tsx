@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { MessageCircle, Send } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -15,6 +16,8 @@ const ChatInterface = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [inputValue, setInputValue] = useState('');
+  const [isDemo, setIsDemo] = useState(true);
 
   const sampleMessages: Omit<Message, 'id' | 'timestamp'>[] = [
     { text: "I want to plan a luxury vacation to Japan", isUser: true },
@@ -24,7 +27,7 @@ const ChatInterface = () => {
   ];
 
   useEffect(() => {
-    if (currentMessageIndex < sampleMessages.length) {
+    if (isDemo && currentMessageIndex < sampleMessages.length) {
       const timer = setTimeout(() => {
         const newMessage: Message = {
           id: Date.now(),
@@ -47,12 +50,48 @@ const ChatInterface = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [currentMessageIndex]);
+  }, [currentMessageIndex, isDemo]);
+
+  const handleSendMessage = () => {
+    if (inputValue.trim() === '') return;
+
+    // Stop demo mode when user starts typing
+    setIsDemo(false);
+
+    const newMessage: Message = {
+      id: Date.now(),
+      text: inputValue,
+      isUser: true,
+      timestamp: new Date()
+    };
+
+    setMessages(prev => [...prev, newMessage]);
+    setInputValue('');
+
+    // Simulate AI response (you can replace this with actual agent integration)
+    setTimeout(() => {
+      const aiResponse: Message = {
+        id: Date.now() + 1,
+        text: "Thanks for your message! I'm here to help you plan your perfect trip. ✨",
+        isUser: false,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, aiResponse]);
+    }, 1000);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
 
   const resetChat = () => {
     setMessages([]);
     setCurrentMessageIndex(0);
     setIsTyping(false);
+    setIsDemo(true);
+    setInputValue('');
   };
 
   return (
@@ -140,16 +179,33 @@ const ChatInterface = () => {
 
         {/* Chat Input */}
         <div className="border-t border-white/10 p-4">
-          <div className="flex space-x-2">
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+          <div className="flex space-x-2 mb-3">
+            <Input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Type your message..."
+              className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/50 rounded-full px-4"
+            />
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                onClick={resetChat}
-                className="w-full bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-white border-0 rounded-full font-semibold"
+                onClick={handleSendMessage}
+                disabled={inputValue.trim() === ''}
+                className="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-white border-0 rounded-full h-10 w-10 p-0"
               >
-                Try It Now
+                <Send className="w-4 h-4" />
               </Button>
             </motion.div>
           </div>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button
+              onClick={resetChat}
+              className="w-full bg-gradient-to-r from-pink-500/20 to-blue-500/20 hover:from-pink-500/30 hover:to-blue-500/30 text-white border border-white/20 rounded-full font-semibold"
+              variant="outline"
+            >
+              {isDemo ? 'Try It Now' : 'Reset Demo'}
+            </Button>
+          </motion.div>
           <p className="text-xs text-white/50 text-center mt-2">
             Experience AI-powered travel planning
           </p>
