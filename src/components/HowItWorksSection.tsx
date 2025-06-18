@@ -130,14 +130,14 @@ const HowItWorksSection = () => {
             whileTap={{ scale: 0.95 }}
             className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 hover:from-green-500 hover:via-blue-500 hover:to-purple-500 text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300"
           >
-            Start Your Journey Today
+            See How It Works
             <motion.span
               animate={{ x: [0, 5, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
               className="ml-2"
             >
               ✨
-            </motion.span>
+            </span>
           </motion.button>
         </motion.div>
       </div>
