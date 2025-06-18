@@ -137,7 +137,7 @@ const HowItWorksSection = () => {
               className="ml-2"
             >
               ✨
-            </span>
+            </motion.span>
           </motion.button>
         </motion.div>
       </div>
