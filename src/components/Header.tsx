@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Compass } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Compass } from "lucide-react";
 
 const Header = () => {
   return (
@@ -28,12 +27,12 @@ const Header = () => {
             Vistaro
           </span>
         </motion.div>
-        
+
         <nav className="hidden md:flex space-x-8">
-          {['Features', 'How it Works', 'Contact'].map((item) => (
+          {["Features", "How it Works", "Contact"].map((item) => (
             <motion.a
               key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
               className="text-white/80 hover:text-white transition-colors relative"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

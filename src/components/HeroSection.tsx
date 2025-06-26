@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import ChatInterface from './ChatInterface';
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import ChatInterface from "./ChatInterface";
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
@@ -15,9 +14,9 @@ const HeroSection = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -28,9 +27,9 @@ const HeroSection = () => {
       transition: {
         type: "spring" as const,
         stiffness: 100,
-        damping: 12
-      }
-    }
+        damping: 12,
+      },
+    },
   };
 
   return (
@@ -60,7 +59,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed"
           >
-            From inspiration to memories - experience travel like{' '}
+            From inspiration to memories - experience travel like{" "}
             <span className="text-transparent bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text font-semibold">
               never before
             </span>
@@ -85,16 +84,16 @@ const HeroSection = () => {
                 </motion.div>
               </Button>
             </motion.div>
-            
+
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="outline"
                 size="lg"
-               //className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg font-semibold rounded-full backdrop-blur-sm"
+                //className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg font-semibold rounded-full backdrop-blur-sm"
                 className="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-white border-0 px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
+                asChild
               >
-                See How It Works
-               
+                <a href="#how-it-works">See How It Works</a>
               </Button>
             </motion.div>
           </motion.div>
@@ -139,10 +138,7 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          style={{ y: y2 }}
-          className="flex justify-center"
-        >
+        <motion.div style={{ y: y2 }} className="flex justify-center">
           <ChatInterface />
         </motion.div>
       </div>
